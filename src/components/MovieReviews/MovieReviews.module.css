@@ -1,0 +1,10 @@
+.movieCastWrapper ul {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.reviewItemWrapper {
+  max-width: 400px;
+}

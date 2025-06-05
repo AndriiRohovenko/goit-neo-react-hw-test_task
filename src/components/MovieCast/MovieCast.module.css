@@ -1,0 +1,19 @@
+.movieCastWrapper ul {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.castItemWrapper {
+  margin-top: 20px;
+  max-width: 200px;
+  margin-bottom: 40px;
+}
+
+.castItemWrapper img {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
