@@ -1,20 +1,15 @@
 import styles from './HomePage.module.css';
-import { useEffect } from 'react';
+
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 import { selectLoading, selectError } from '../../redux/campersSlice';
 import CampersList from '../../components/CampersList/CampersList';
 
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchCampersThunk } from '../../redux/campersOps';
+import { useSelector } from 'react-redux';
 
 const HomePage = () => {
-  const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
-  useEffect(() => {
-    dispatch(fetchCampersThunk());
-  }, [dispatch]);
 
   return (
     <div>

@@ -17,8 +17,16 @@ const CamperDetailsPage = lazy(() =>
 );
 
 const Loader = lazy(() => import('../../components/Loader/Loader'));
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchCampersThunk } from '../../redux/campersOps';
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCampersThunk());
+  }, [dispatch]);
+
   return (
     <div>
       <Header />

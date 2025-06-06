@@ -6,9 +6,13 @@ import { selectCampers } from '../../redux/campersSlice';
 
 function CampersList() {
   const campers = useSelector(selectCampers);
-  console.log(campers);
 
   const location = useLocation();
+
+  // Handle empty state
+  if (campers.total === 0) {
+    return <p className={styles.noCampersMessage}>No campers available.</p>;
+  }
   return (
     <>
       <div className={styles.campersListWrapper}>
