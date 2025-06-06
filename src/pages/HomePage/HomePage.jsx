@@ -17,7 +17,11 @@ const HomePage = () => {
       {error == true && (
         <ErrorMessage message={'Please try to reload the page!'} />
       )}
-      {isLoading ? <Loader isLoading={isLoading} /> : <CampersList />}
+      {isLoading ? (
+        <Loader isLoading={isLoading} />
+      ) : (
+        <CampersList itemsCount={5} />
+      )}
     </div>
   );
 };

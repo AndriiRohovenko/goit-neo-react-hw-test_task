@@ -2,11 +2,11 @@ import styles from './CampersList.module.css';
 import { Link, useLocation } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import { selectCampers } from '../../redux/campersSlice';
+import { selectCampers, selectFilteredCampers } from '../../redux/campersSlice';
 
-function CampersList() {
+function CampersList({ itemsCount = -1 }) {
   const campers = useSelector(selectCampers);
-
+  const fileredCampers = useSelector(selectFilteredCampers);
   const location = useLocation();
 
   // Handle empty state
@@ -17,13 +17,15 @@ function CampersList() {
     <>
       <div className={styles.campersListWrapper}>
         <ul>
-          {campers.items.map(camper => (
-            <li key={camper.id}>
-              <Link to={`/catalog/${camper.id}`} state={location}>
-                {camper.name}
-              </Link>
-            </li>
-          ))}
+          {fileredCampers
+            .map(camper => (
+              <li key={camper.id}>
+                <Link to={`/catalog/${camper.id}`} state={location}>
+                  {camper.name}
+                </Link>
+              </li>
+            ))
+            .slice(0, itemsCount)}
         </ul>
       </div>
     </>

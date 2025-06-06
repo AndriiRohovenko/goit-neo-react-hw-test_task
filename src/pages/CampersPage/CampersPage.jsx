@@ -1,68 +1,26 @@
-// import './CampersPage.module.css';
-// import { useState, useEffect } from 'react';
-// import { useSearchParams } from 'react-router-dom';
-// import SearchBar from '../../components/SearchBar/SearchBar';
-// import { getMoviesByQuery } from '../../api/campers';
-// import CampersList from '../../components/CampersList/CampersList';
-// import Loader from '../../components/Loader/Loader';
-// import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import './CampersPage.module.css';
+import SearchBar from '../../components/SearchBar/SearchBar';
+import CampersList from '../../components/CampersList/CampersList';
+import Loader from '../../components/Loader/Loader';
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import { useId } from 'react';
+import { selectError, selectLoading } from '../../redux/campersSlice';
+
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const CampersPage = () => {
-  // const [hits, setHits] = useState([]);
-  // const [isLoading, setIsLoading] = useState(false);
-  // const [error, setError] = useState(false);
-  // const [searchParams, setSearchParams] = useSearchParams();
-  // const searchQuery = searchParams.get('search') ?? '';
+  const isLoading = useSelector(selectLoading);
+  const error = useSelector(selectError);
 
-  // useEffect(() => {
-  //   const tranding_movies_fetching = async () => {
-  //     try {
-  //       if (!searchQuery.trim()) {
-  //         setHits([]);
-  //         setError(false);
-  //         return;
-  //       }
+  // const searchFieldID = useId();
 
-  //       setIsLoading(true);
-
-  //       const data = await getMoviesByQuery(searchQuery, 1);
-
-  //       if (data.results.length > 0) {
-  //         setHits(data.results);
-  //         setError(false);
-  //       } else {
-  //         setHits([]);
-  //         setError(true);
-  //       }
-  //     } catch (error) {
-  //       console.error(error);
-  //       setError(true);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   };
-
-  //   tranding_movies_fetching();
-  // }, [searchQuery]);
-
-  // const handleSearch = searchValue => {
-  //   if (!searchValue.trim()) {
-  //     setSearchParams({});
-  //     return;
-  //   }
-  //   searchParams.set('search', searchValue);
-  //   setSearchParams(searchParams);
-  // };
   return (
     <div>
       <p>CampersPage</p>
-      {/* <SearchBar onSearch={handleSearch} value={searchQuery} />
+      <SearchBar />
       {error && <ErrorMessage message={'Try Different Query!'} />}
-      {isLoading ? (
-        <Loader isLoading={isLoading} />
-      ) : (
-        <CampersList movies={hits} />
-      )} */}
+      {isLoading ? <Loader isLoading={isLoading} /> : <CampersList />}
     </div>
   );
 };

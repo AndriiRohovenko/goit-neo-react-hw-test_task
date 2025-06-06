@@ -3,14 +3,15 @@ import { useId } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { toast } from 'react-hot-toast';
 import { GoSearch } from 'react-icons/go';
-import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeFilter, selectNameFilter } from '../../redux/filtersSlice';
 
-function SearchBar({ onSearch, value }) {
-  const [inputValue, setInputValue] = useState(value);
-
-  useEffect(() => {
-    setInputValue(value);
-  }, [value]);
+function SearchBar() {
+  const dispatch = useDispatch();
+  const filterData = useSelector(selectNameFilter);
+  const handleChange = ev => {
+    dispatch(changeFilter(ev.target.value.toLowerCase()));
+  };
 
   const searchFieldID = useId();
   const handleSubmit = ev => {
@@ -19,11 +20,6 @@ function SearchBar({ onSearch, value }) {
     if (!input_value) {
       toast.error('Please insert search text!');
     }
-    onSearch(input_value);
-  };
-
-  const handleChange = e => {
-    setInputValue(e.target.value);
   };
 
   return (
@@ -38,7 +34,7 @@ function SearchBar({ onSearch, value }) {
             autoFocus
             placeholder="Search Movies"
             id={searchFieldID}
-            value={inputValue}
+            value={filterData}
             onChange={handleChange}
           />
           <button type="submit" className={styles.searchBtn}>
