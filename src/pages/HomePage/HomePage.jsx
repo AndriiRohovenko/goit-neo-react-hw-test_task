@@ -1,39 +1,20 @@
 import styles from './HomePage.module.css';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
-import { getCampers } from '../../api/campers';
+import { selectLoading, selectError } from '../../redux/campersSlice';
 import CampersList from '../../components/CampersList/CampersList';
 
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchCampersThunk } from '../../redux/campersOps';
+
 const HomePage = () => {
-  const [hits, setHits] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
-
+  const dispatch = useDispatch();
+  const isLoading = useSelector(selectLoading);
+  const error = useSelector(selectError);
   useEffect(() => {
-    const campers_items_fetching = async () => {
-      try {
-        setIsLoading(true);
-
-        const { items } = await getCampers();
-
-        if (items) {
-          setHits(items);
-          setError(false);
-        } else {
-          setError(true);
-        }
-      } catch (error) {
-        console.error(error);
-        setError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    campers_items_fetching();
-  }, []);
-  console.log(hits);
+    dispatch(fetchCampersThunk());
+  }, [dispatch]);
 
   return (
     <div>
@@ -41,11 +22,7 @@ const HomePage = () => {
       {error == true && (
         <ErrorMessage message={'Please try to reload the page!'} />
       )}
-      {isLoading ? (
-        <Loader isLoading={isLoading} />
-      ) : (
-        <CampersList campers={hits} />
-      )}
+      {isLoading ? <Loader isLoading={isLoading} /> : <CampersList />}
     </div>
   );
 };

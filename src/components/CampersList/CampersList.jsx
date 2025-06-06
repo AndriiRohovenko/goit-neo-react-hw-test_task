@@ -1,14 +1,19 @@
 import styles from './CampersList.module.css';
 import { Link, useLocation } from 'react-router-dom';
 
-function CampersList({ campers }) {
-  const location = useLocation();
+import { useSelector } from 'react-redux';
+import { selectCampers } from '../../redux/campersSlice';
+
+function CampersList() {
+  const campers = useSelector(selectCampers);
   console.log(campers);
+
+  const location = useLocation();
   return (
     <>
       <div className={styles.campersListWrapper}>
         <ul>
-          {campers.map(camper => (
+          {campers.items.map(camper => (
             <li key={camper.id}>
               <Link to={`/catalog/${camper.id}`} state={location}>
                 {camper.name}
