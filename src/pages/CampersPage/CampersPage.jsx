@@ -1,13 +1,13 @@
-import './MoviesPage.module.css';
+import './CampersPage.module.css';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import { getMoviesByQuery } from '../../api/movies';
-import MoviesList from '..//..//components/MoviesList/MoviesList';
+import MoviesList from '../../components/MoviesList/MoviesList';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
-const MoviesPage = () => {
+const CampersPage = () => {
   const [hits, setHits] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -55,6 +55,7 @@ const MoviesPage = () => {
   };
   return (
     <div>
+      <p>CampersPage</p>
       <SearchBar onSearch={handleSearch} value={searchQuery} />
       {error && <ErrorMessage message={'Try Different Query!'} />}
       {isLoading ? (
@@ -66,4 +67,4 @@ const MoviesPage = () => {
   );
 };
 
-export default MoviesPage;
+export default CampersPage;
