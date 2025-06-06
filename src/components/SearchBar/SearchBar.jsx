@@ -32,7 +32,7 @@ function SearchBar() {
             type="text"
             autoComplete="off"
             autoFocus
-            placeholder="Search Movies"
+            placeholder="Search Camper"
             id={searchFieldID}
             value={filterData}
             onChange={handleChange}

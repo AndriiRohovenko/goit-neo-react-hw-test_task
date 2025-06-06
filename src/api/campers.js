@@ -10,19 +10,13 @@ export const getCampers = async () => {
   return data;
 };
 
-// export const getMoviesByQuery = async (searchValue, page) => {
-//   const { data } = await axios({
-//     url: `/3/search/movie`,
-//     method: 'get',
-//     params: {
-//       query: searchValue,
-//       include_adult: 'false',
-//       language: 'en-US',
-//       page,
-//     },
-//   });
-//   return data;
-// };
+export const getCamperById = async id => {
+  const { data } = await axios({
+    url: `campers/${id}`,
+    method: 'get',
+  });
+  return data;
+};
 
 // export const getMovieDetails = async movie_id => {
 //   const { data } = await axios({

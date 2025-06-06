@@ -1,5 +1,5 @@
 import { createSlice, createSelector } from '@reduxjs/toolkit';
-import { fetchCampersThunk } from './campersOps';
+import { fetchCampersThunk, fetchCamperByIdThunk } from './campersOps';
 import { selectNameFilter } from './filtersSlice';
 
 const handlePending = state => {
@@ -15,6 +15,7 @@ const campersSlice = createSlice({
   name: 'campers',
   initialState: {
     data: [],
+    singleCamperData: {},
     isLoading: false,
     error: null,
   },
@@ -26,13 +27,22 @@ const campersSlice = createSlice({
         state.error = null;
         state.data = action.payload;
       })
-      .addCase(fetchCampersThunk.rejected, handleRejected);
+      .addCase(fetchCampersThunk.rejected, handleRejected)
+
+      .addCase(fetchCamperByIdThunk.pending, handlePending)
+      .addCase(fetchCamperByIdThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.singleCamperData = action.payload;
+      })
+      .addCase(fetchCamperByIdThunk.rejected, handleRejected);
   },
 });
 
 export const campersReducer = campersSlice.reducer;
 
 export const selectCampers = state => state.campers.data;
+export const selectSingleCamper = state => state.campers.singleCamperData;
 export const selectLoading = state => state.campers.isLoading;
 export const selectError = state => state.campers.error;
 export const selectFilteredCampers = createSelector(
