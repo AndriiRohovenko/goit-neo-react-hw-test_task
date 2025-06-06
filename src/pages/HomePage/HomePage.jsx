@@ -2,8 +2,8 @@ import styles from './HomePage.module.css';
 import { useState, useEffect } from 'react';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
-import { getTrandingMovies } from '../../api/movies';
-import MoviesList from '..//..//components/MoviesList/MoviesList';
+import { getCampers } from '../../api/campers';
+import CampersList from '../../components/CampersList/CampersList';
 
 const HomePage = () => {
   const [hits, setHits] = useState([]);
@@ -11,14 +11,14 @@ const HomePage = () => {
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    const tranding_movies_fetching = async () => {
+    const campers_items_fetching = async () => {
       try {
         setIsLoading(true);
 
-        const data = await getTrandingMovies(1);
+        const { items } = await getCampers();
 
-        if (data && data.results) {
-          setHits(data.results);
+        if (items) {
+          setHits(items);
           setError(false);
         } else {
           setError(true);
@@ -31,19 +31,20 @@ const HomePage = () => {
       }
     };
 
-    tranding_movies_fetching();
+    campers_items_fetching();
   }, []);
+  console.log(hits);
 
   return (
     <div>
-      <h1 className={styles.trandingSectionTitle}>Trending Today</h1>
+      <h1 className={styles.trandingSectionTitle}>Top Campers</h1>
       {error == true && (
         <ErrorMessage message={'Please try to reload the page!'} />
       )}
       {isLoading ? (
         <Loader isLoading={isLoading} />
       ) : (
-        <MoviesList movies={hits} />
+        <CampersList campers={hits} />
       )}
     </div>
   );
