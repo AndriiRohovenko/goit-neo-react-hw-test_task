@@ -19,6 +19,12 @@
   color: white;
 }
 
+@media (max-width: 600px) {
+  .pageContent {
+    margin-left: 10px;
+  }
+}
+
 .trandingSectionTitle {
 }
 

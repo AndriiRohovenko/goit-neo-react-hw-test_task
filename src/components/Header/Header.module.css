@@ -6,10 +6,22 @@
   position: relative;
 }
 
+@media (max-width: 600px) {
+  .header {
+    position: relative;
+  }
+}
+
 .logo {
   position: absolute;
   left: 50px;
   font-weight: 900;
+}
+
+@media (max-width: 600px) {
+  .logo {
+    left: 10px;
+  }
 }
 
 .logo span {
