@@ -53,7 +53,7 @@ function CampersList() {
                   {camper.water ? <p>Water</p> : null}
                 </div>
                 <Link to={`/catalog/${camper.id}`} state={location}>
-                  <button>Show More</button>
+                  <button className={styles.showMoreBtn}>Show More</button>
                 </Link>
               </div>
             </li>
