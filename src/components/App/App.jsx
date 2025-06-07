@@ -5,10 +5,12 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 
 const Header = lazy(() => import('../Header/Header'));
-// const MovieCast = lazy(() => import('../../components/MovieCast/MovieCast'));
-// const MovieReviews = lazy(() =>
-//   import('../../components/MovieReviews/MovieReviews')
-// );
+const CamperFeatures = lazy(() =>
+  import('../../components/CamperFeatures/CamperFeatures')
+);
+const CamperReviews = lazy(() =>
+  import('../../components/CamperReviews/CamperReviews')
+);
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
 const ErrorPage = lazy(() => import('../../pages/NotFoundPage/NotFoundPage'));
 const CampersPage = lazy(() => import('../../pages/CampersPage/CampersPage'));
@@ -35,8 +37,8 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/catalog" element={<CampersPage />} />
           <Route path="/catalog/:camperId" element={<CamperDetailsPage />}>
-            {/* <Route path="cast" element={<MovieCast />} />
-            <Route path="reviews" element={<MovieReviews />} /> */}
+            <Route path="features" element={<CamperFeatures />} />
+            <Route path="reviews" element={<CamperReviews />} />
           </Route>
 
           <Route path="*" element={<ErrorPage />} />

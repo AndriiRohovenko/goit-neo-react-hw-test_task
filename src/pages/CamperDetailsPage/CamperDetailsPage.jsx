@@ -1,6 +1,7 @@
 import styles from './CamperDetailsPage.module.css';
 import { useEffect } from 'react';
 import { useParams, useNavigate, useLocation, Outlet } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
 
@@ -14,10 +15,12 @@ const CamperDetailsPage = () => {
   const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const { camperId } = useParams();
-  const camper = useSelector(selectSingleCamper);
+  const camper = useSelector(state => selectSingleCamper(state, camperId));
   useEffect(() => {
-    dispatch(fetchCamperByIdThunk(camperId));
-  }, [dispatch, camperId]);
+    if (!camper || camper.id !== camperId) {
+      dispatch(fetchCamperByIdThunk(camperId));
+    }
+  }, [dispatch, camper, camperId]);
 
   console.log(camper);
 
@@ -52,15 +55,33 @@ const CamperDetailsPage = () => {
       <p>{`${camper.rating}(${camper.reviews.length} Reviews)`}</p>
       <p>{camper.location}</p>
       <p>€{camper.price}</p>
-      <ul className={styles.camperGallery}>
+      <div className={styles.camperGallery}>
         {camper.gallery.map(img => (
-          <li>
-            <img src={img.thumb} alt={`original image of ${camper.name}`} />
-          </li>
+          <img
+            key={img.thumb}
+            src={img.thumb}
+            alt={`original image of ${camper.name}`}
+          />
         ))}
-      </ul>
+      </div>
 
       <p>{camper.description}</p>
+
+      <div>
+        <p>Additional Information</p>
+        <ul>
+          <li>
+            <NavLink to="features" state={location.state}>
+              Features
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="reviews" state={location.state}>
+              Reviews
+            </NavLink>
+          </li>
+        </ul>
+      </div>
 
       <Outlet />
     </>

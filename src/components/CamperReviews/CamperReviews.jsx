@@ -1,46 +1,18 @@
 import styles from './CamperReviews.module.css';
 
-import { getMovieDetailsReviews } from '../../api/movies';
+// import { getMovieDetailsReviews } from '../../api/movies';
 
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import Loader from '../Loader/Loader';
-import ErrorMessage from '../ErrorMessage/ErrorMessage';
+// import { useState, useEffect } from 'react';
+// import { useParams } from 'react-router-dom';
+// import Loader from '../Loader/Loader';
+// import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
 function CamperReviews() {
-  const [hits, setHits] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
-
-  const { movieId } = useParams();
-
-  useEffect(() => {
-    const movie_review_data_fetching = async () => {
-      try {
-        setIsLoading(true);
-
-        const data = await getMovieDetailsReviews(movieId);
-        if (data.results.length > 0) {
-          setHits(data.results);
-          setError(false);
-        } else {
-          setError(true);
-        }
-      } catch (error) {
-        console.error(error);
-        setError(true);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    movie_review_data_fetching();
-  }, [movieId]);
-
   return (
     <>
-      <div className={styles.movieCastWrapper}>
-        {error == true && (
+      <div className={styles.camperReviewsWrapper}>
+        <p>Here will be Camper Reviews Soon ..</p>
+        {/* {error == true && (
           <ErrorMessage message={"We don't have any reviews for this movie"} />
         )}
         <ul>
@@ -67,7 +39,7 @@ function CamperReviews() {
               </li>
             ))
           )}
-        </ul>
+        </ul> */}
       </div>
     </>
   );

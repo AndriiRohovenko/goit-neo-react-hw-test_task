@@ -15,7 +15,7 @@ const campersSlice = createSlice({
   name: 'campers',
   initialState: {
     data: [],
-    singleCamperData: {},
+    singleCamperData: null,
     isLoading: false,
     error: null,
   },
@@ -42,7 +42,11 @@ const campersSlice = createSlice({
 export const campersReducer = campersSlice.reducer;
 
 export const selectCampers = state => state.campers.data;
-export const selectSingleCamper = state => state.campers.singleCamperData;
+export const selectSingleCamper = (state, camperId) => {
+  return state.campers.singleCamperData?.id === camperId
+    ? state.campers.singleCamperData
+    : null;
+};
 export const selectLoading = state => state.campers.isLoading;
 export const selectError = state => state.campers.error;
 export const selectFilteredCampers = createSelector(
