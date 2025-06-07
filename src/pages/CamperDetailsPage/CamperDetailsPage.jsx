@@ -47,43 +47,45 @@ const CamperDetailsPage = () => {
 
   return (
     <>
-      <button className={styles.goBackBtn} onClick={backButtonHandler}>
-        Go Back
-      </button>
-      <h1>{camper.name}</h1>
-
-      <p>{`${camper.rating}(${camper.reviews.length} Reviews)`}</p>
-      <p>{camper.location}</p>
-      <p>€{camper.price}</p>
-      <div className={styles.camperGallery}>
-        {camper.gallery.map(img => (
-          <img
-            key={img.thumb}
-            src={img.thumb}
-            alt={`original image of ${camper.name}`}
-          />
-        ))}
+      <div className={styles.pageContent}>
+        <button className={styles.goBackBtn} onClick={backButtonHandler}>
+          Go Back
+        </button>
+        <div className={styles.contentHead}>
+          <h1>{camper.name}</h1>
+          <div>
+            <p>{`${camper.rating}(${camper.reviews.length} Reviews)`}</p>
+            <p>{camper.location}</p>
+          </div>
+          <p>€{camper.price}</p>
+        </div>
+        <div className={styles.camperGallery}>
+          {camper.gallery.map(img => (
+            <img
+              key={img.thumb}
+              src={img.thumb}
+              alt={`original image of ${camper.name}`}
+            />
+          ))}
+        </div>
+        <p>{camper.description}</p>
+        <div>
+          <p>Additional Information</p>
+          <ul>
+            <li>
+              <NavLink to="features" state={location.state}>
+                Features
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="reviews" state={location.state}>
+                Reviews
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+        <Outlet />
       </div>
-
-      <p>{camper.description}</p>
-
-      <div>
-        <p>Additional Information</p>
-        <ul>
-          <li>
-            <NavLink to="features" state={location.state}>
-              Features
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to="reviews" state={location.state}>
-              Reviews
-            </NavLink>
-          </li>
-        </ul>
-      </div>
-
-      <Outlet />
     </>
   );
 };
