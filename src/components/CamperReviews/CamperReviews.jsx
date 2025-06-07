@@ -1,13 +1,13 @@
-import styles from './MovieReviews.module.css';
+import styles from './CamperReviews.module.css';
 
 import { getMovieDetailsReviews } from '../../api/movies';
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Loader from '../../components/Loader/Loader';
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import Loader from '../Loader/Loader';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
-function MovieReviews() {
+function CamperReviews() {
   const [hits, setHits] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -73,4 +73,4 @@ function MovieReviews() {
   );
 }
 
-export default MovieReviews;
+export default CamperReviews;

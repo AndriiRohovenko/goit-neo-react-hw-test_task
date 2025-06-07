@@ -1,13 +1,13 @@
-import styles from './MovieCast.module.css';
+import styles from './CamperFeatures.module.css';
 
 import { getMovieDetailsCredits } from '../../api/movies';
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Loader from '../../components/Loader/Loader';
-import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
+import Loader from '../Loader/Loader';
+import ErrorMessage from '../ErrorMessage/ErrorMessage';
 
-function MovieCast() {
+function CamperFeatures() {
   const [hits, setHits] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(false);
@@ -73,4 +73,4 @@ function MovieCast() {
   );
 }
 
-export default MovieCast;
+export default CamperFeatures;

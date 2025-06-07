@@ -48,9 +48,20 @@ const CamperDetailsPage = () => {
         Go Back
       </button>
       <h1>{camper.name}</h1>
-      <p>Price: {camper.price}</p>
-      <p>Rating: {camper.rating}</p>
-      <p>Location: {camper.location}</p>
+
+      <p>{`${camper.rating}(${camper.reviews.length} Reviews)`}</p>
+      <p>{camper.location}</p>
+      <p>€{camper.price}</p>
+      <ul className={styles.camperGallery}>
+        {camper.gallery.map(img => (
+          <li>
+            <img src={img.thumb} alt={`original image of ${camper.name}`} />
+          </li>
+        ))}
+      </ul>
+
+      <p>{camper.description}</p>
+
       <Outlet />
     </>
   );
