@@ -14,12 +14,10 @@ const CamperDetailsPage = () => {
   const isLoading = useSelector(selectLoading);
   const error = useSelector(selectError);
   const { camperId } = useParams();
-
+  const camper = useSelector(selectSingleCamper);
   useEffect(() => {
     dispatch(fetchCamperByIdThunk(camperId));
   }, [dispatch, camperId]);
-
-  const camper = useSelector(selectSingleCamper);
 
   console.log(camper);
 

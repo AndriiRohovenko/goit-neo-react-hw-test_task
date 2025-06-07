@@ -4,7 +4,11 @@ import { NavLink } from 'react-router-dom';
 function Header() {
   return (
     <>
-      <header>
+      <header className={styles.header}>
+        <p className={styles.logo}>
+          Travel
+          <span>Trucks</span>
+        </p>
         <div className={styles.navigationWrapper}>
           <NavLink
             to={'/'}

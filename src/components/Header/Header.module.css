@@ -1,14 +1,26 @@
-.navigationWrapper {
+.header {
   display: flex;
-  justify-content: flex-start;
-  gap: 20px;
-  height: 60px;
-  display: flex;
-  padding: 20px;
+  justify-content: space-between;
   align-items: center;
-  border-radius: 10px;
+  height: auto;
   box-shadow: 10px 5px 5px grey;
   margin-bottom: 20px;
+}
+
+.logo {
+  margin-left: 20px;
+  font-weight: 900;
+}
+
+.logo span {
+  color: grey;
+}
+
+.navigationWrapper {
+  display: flex;
+  gap: 10px;
+  margin: 0 auto;
+  padding: 20px;
 }
 
 .navLink {
