@@ -8,20 +8,18 @@ import CampersList from '../../components/CampersList/CampersList';
 import { useSelector } from 'react-redux';
 
 const HomePage = () => {
-  const isLoading = useSelector(selectLoading);
-  const error = useSelector(selectError);
+  // const isLoading = useSelector(selectLoading);
+  // const error = useSelector(selectError);
 
   return (
-    <div>
-      <h1 className={styles.trandingSectionTitle}>Top Campers</h1>
-      {error == true && (
-        <ErrorMessage message={'Please try to reload the page!'} />
-      )}
-      {isLoading ? (
-        <Loader isLoading={isLoading} />
-      ) : (
-        <CampersList itemsCount={5} />
-      )}
+    <div className={styles.background}>
+      <div className={styles.pageContent}>
+        <h1>Campers of your dreams</h1>
+        <p>You can find everything you want in our catalog</p>
+        <a href="/catalog">
+          <button className={styles.viewNowBtn}>View Now</button>
+        </a>
+      </div>
     </div>
   );
 };
