@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding: 64px;
-  max-width: 888px;
 }
 
 .cardWrapper {
@@ -13,6 +11,12 @@
   border-radius: 20px;
   padding: 24px;
   flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+  .cardWrapper {
+    flex-direction: column;
+  }
 }
 
 .cardLeftSection {
@@ -33,7 +37,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 524px;
+
   gap: 24px;
 }
 

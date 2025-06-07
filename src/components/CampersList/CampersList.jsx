@@ -36,7 +36,7 @@ function CampersList() {
                 </div>
                 <p className={styles.cardDescription}>
                   {camper.description &&
-                    camper.description.slice(0, 100) + '...'}
+                    camper.description.slice(0, 50) + '...'}
                 </p>
                 <div className={styles.cardCamperOptions}>
                   <p>{camper.transmission}</p>

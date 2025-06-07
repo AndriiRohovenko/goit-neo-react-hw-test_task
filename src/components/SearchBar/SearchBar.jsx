@@ -24,7 +24,7 @@ function SearchBar() {
 
   return (
     <>
-      <header>
+      <div>
         <form onSubmit={handleSubmit} className={styles.searchForm}>
           <input
             className={styles.searchBar}
@@ -42,7 +42,7 @@ function SearchBar() {
           </button>
           <Toaster position="top-right" />
         </form>
-      </header>
+      </div>
     </>
   );
 }

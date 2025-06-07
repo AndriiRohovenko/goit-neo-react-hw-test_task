@@ -17,7 +17,6 @@ const CampersPage = () => {
 
   return (
     <div className={styles.pageContentWrapper}>
-      <p>CampersPage</p>
       <SearchBar />
       {error && <ErrorMessage message={'Try Different Query!'} />}
       {isLoading ? <Loader isLoading={isLoading} /> : <CampersList />}

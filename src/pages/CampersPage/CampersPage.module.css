@@ -1,3 +1,10 @@
 .pageContentWrapper {
   display: flex;
+  padding: 0px 64px 52px 64px;
+}
+
+@media (max-width: 1024px) {
+  .pageContentWrapper {
+    flex-direction: column;
+  }
 }
