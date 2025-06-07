@@ -6,7 +6,7 @@
   width: 100%;
   height: 100vh;
   max-height: 1440px;
-  overflow: hidden; /* Hides any overflowing content */
+  overflow: hidden;
 
   display: flex;
   align-items: center;
@@ -23,15 +23,5 @@
 }
 
 .viewNowBtn {
-  padding: 10px 15px;
-  border: none;
-  background-color: #e44848;
-  color: white;
-  border-radius: 5px;
-  cursor: pointer;
   margin-top: 20px;
-}
-
-.viewNowBtn:hover {
-  background-color: #d84343;
 }

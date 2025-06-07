@@ -1,4 +1,4 @@
-import './CampersPage.module.css';
+import styles from './CampersPage.module.css';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import CampersList from '../../components/CampersList/CampersList';
 import Loader from '../../components/Loader/Loader';
@@ -16,7 +16,7 @@ const CampersPage = () => {
   // const searchFieldID = useId();
 
   return (
-    <div>
+    <div className={styles.pageContentWrapper}>
       <p>CampersPage</p>
       <SearchBar />
       {error && <ErrorMessage message={'Try Different Query!'} />}
