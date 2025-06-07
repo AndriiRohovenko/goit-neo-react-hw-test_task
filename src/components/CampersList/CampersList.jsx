@@ -41,15 +41,16 @@ function CampersList() {
                 <div className={styles.cardCamperOptions}>
                   <p>{camper.transmission}</p>
                   <p>{camper.engine}</p>
-                  <p>{camper.AC && 'AC'}</p>
-                  <p>{camper.bathroom && 'Bathroom'}</p>
-                  <p>{camper.kitchen && 'Kitchen'}</p>
-                  <p>{camper.TV && 'TV'}</p>
-                  <p>{camper.radio && 'Radio'}</p>
-                  <p>{camper.refrigerator && 'Refrigerator'}</p>
-                  <p>{camper.microwave && 'Microwave'}</p>
-                  <p>{camper.gas && 'Gas'}</p>
-                  <p>{camper.water && 'Water'}</p>
+                  {camper.AC ? <p>AC</p> : null}
+                  {camper.bathroom ? <p>bathroom</p> : null}
+                  {camper.kitchen ? <p>Kitchen</p> : null}
+                  {camper.TV ? <p>TV</p> : null}
+                  {camper.radio ? <p>Radio</p> : null}
+                  {camper.refrigerator ? <p>Refrigerator</p> : null}
+
+                  {camper.microwave ? <p>Microwave</p> : null}
+                  {camper.gas ? <p>Gas</p> : null}
+                  {camper.water ? <p>Water</p> : null}
                 </div>
                 <Link to={`/catalog/${camper.id}`} state={location}>
                   <button>Show More</button>

@@ -34,7 +34,7 @@
   flex-direction: column;
   justify-content: space-between;
   width: 524px;
-  height: 320px;
+  gap: 24px;
 }
 
 .cardContentHead {
@@ -56,4 +56,10 @@
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+}
+
+.cardCamperOptions p {
+  background-color: #f2f4f7;
+  border-radius: 50px;
+  padding: 12px;
 }
