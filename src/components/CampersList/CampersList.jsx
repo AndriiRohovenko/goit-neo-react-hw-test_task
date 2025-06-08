@@ -37,7 +37,7 @@ function CampersList() {
               </div>
               <div className={styles.cardRightSection}>
                 <p className={styles.cardName}>
-                  {camper.name} <span>€{camper.price}</span>
+                  {camper.name} <span>€{camper.price.toFixed(2)}</span>
                 </p>
                 <div className={styles.cardContentHead}>
                   <p>{`${camper.rating}(${camper.reviews.length} Reviews)`}</p>
