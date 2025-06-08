@@ -6,7 +6,7 @@ import { useState } from 'react';
 
 function CampersList() {
   const campers = useSelector(selectCampers);
-  const fileredCampers = useSelector(selectFilteredCampers);
+  const filteredCampers = useSelector(selectFilteredCampers);
   const location = useLocation();
   const itemsPerPage = 4;
 
@@ -20,11 +20,13 @@ function CampersList() {
     setVisibleCount(prev => prev + itemsPerPage);
   };
 
+  const isLastPage = visibleCount >= filteredCampers.length;
+
   return (
     <>
       <div className={styles.contentWrapper}>
         <ul className={styles.campersListWrapper}>
-          {fileredCampers.slice(0, visibleCount).map(camper => (
+          {filteredCampers.slice(0, visibleCount).map(camper => (
             <li className={styles.cardWrapper} key={camper.id}>
               <div className={styles.cardLeftSection}>
                 <img
@@ -66,9 +68,11 @@ function CampersList() {
             </li>
           ))}
         </ul>
-        <button className={styles.loadMoreBtn} onClick={handleLoadMore}>
-          Load More
-        </button>
+        {!isLastPage && (
+          <button className={styles.loadMoreBtn} onClick={handleLoadMore}>
+            Load More
+          </button>
+        )}
       </div>
     </>
   );
