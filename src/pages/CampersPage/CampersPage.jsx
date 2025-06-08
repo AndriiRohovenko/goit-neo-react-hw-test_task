@@ -1,5 +1,5 @@
 import styles from './CampersPage.module.css';
-import SearchBar from '../../components/SearchBar/SearchBar';
+import FilterForm from '../../components/FilterForm/FilterForm';
 import CampersList from '../../components/CampersList/CampersList';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
@@ -17,7 +17,7 @@ const CampersPage = () => {
 
   return (
     <div className={styles.pageContentWrapper}>
-      <SearchBar />
+      <FilterForm />
       {error && <ErrorMessage message={'Try Different Query!'} />}
       {isLoading ? <Loader isLoading={isLoading} /> : <CampersList />}
     </div>

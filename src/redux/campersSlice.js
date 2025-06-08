@@ -1,6 +1,6 @@
 import { createSlice, createSelector } from '@reduxjs/toolkit';
 import { fetchCampersThunk, fetchCamperByIdThunk } from './campersOps';
-import { selectNameFilter } from './filtersSlice';
+import { selectFilters } from './filtersSlice';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -50,10 +50,27 @@ export const selectSingleCamper = (state, camperId) => {
 export const selectLoading = state => state.campers.isLoading;
 export const selectError = state => state.campers.error;
 export const selectFilteredCampers = createSelector(
-  [selectCampers, selectNameFilter],
-  (campers, filterData) => {
-    return campers.items.filter(item =>
-      item.name.toLowerCase().includes(filterData)
-    );
+  [selectCampers, selectFilters],
+  (campers, filters) => {
+    const { selectedEquipment, selectedVehicleType } = filters;
+
+    const fieldMap = {
+      automatic: camper => camper.transmission === 'automatic',
+      AC: camper => camper.AC === true,
+      TV: camper => camper.TV === true,
+      kitchen: camper => camper.kitchen === true,
+      bathroom: camper => camper.bathroom === true,
+    };
+
+    return campers.items.filter(camper => {
+      const matchesEquipment = selectedEquipment.every(eq =>
+        fieldMap[eq] ? fieldMap[eq](camper) : true
+      );
+
+      const matchesType =
+        !selectedVehicleType || camper.form === selectedVehicleType;
+
+      return matchesEquipment && matchesType;
+    });
   }
 );

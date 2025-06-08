@@ -3,17 +3,33 @@ import { createSlice } from '@reduxjs/toolkit';
 const filtersSlice = createSlice({
   name: 'filters',
   initialState: {
-    filterByName: {
-      name: '',
-    },
+    selectedEquipment: [],
+    selectedVehicleType: '',
   },
   reducers: {
-    changeFilter(state, action) {
-      state.filterByName.name = action.payload;
+    toggleEquipment(state, action) {
+      const equipment = action.payload;
+      if (state.selectedEquipment.includes(equipment)) {
+        state.selectedEquipment = state.selectedEquipment.filter(
+          eq => eq !== equipment
+        );
+      } else {
+        state.selectedEquipment.push(equipment);
+      }
+    },
+    setVehicleType(state, action) {
+      state.selectedVehicleType = action.payload;
+    },
+
+    resetFilters(state) {
+      state.selectedEquipment = [];
+      state.selectedVehicleType = '';
     },
   },
 });
 
-export const { changeFilter } = filtersSlice.actions;
+export const { toggleEquipment, setVehicleType, resetFilters } =
+  filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;
-export const selectNameFilter = state => state.filters.filterByName.name;
+
+export const selectFilters = state => state.filters;

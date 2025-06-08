@@ -58,7 +58,7 @@ const CamperDetailsPage = () => {
             <p>{camper.location}</p>
           </div>
           <b>
-            <p>€{camper.price}</p>
+            <p>€{camper.price.toFixed(2)}</p>
           </b>
         </div>
         <div className={styles.camperGallery}>

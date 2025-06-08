@@ -1,18 +1,17 @@
 import styles from './CampersList.module.css';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectCampers, selectFilteredCampers } from '../../redux/campersSlice';
+import { selectFilteredCampers } from '../../redux/campersSlice';
 import { useState } from 'react';
 
 function CampersList() {
-  const campers = useSelector(selectCampers);
   const filteredCampers = useSelector(selectFilteredCampers);
   const location = useLocation();
   const itemsPerPage = 4;
 
   const [visibleCount, setVisibleCount] = useState(itemsPerPage);
 
-  if (campers.total === 0) {
+  if (filteredCampers.total === 0) {
     return <p className={styles.noCampersMessage}>No campers available.</p>;
   }
 
