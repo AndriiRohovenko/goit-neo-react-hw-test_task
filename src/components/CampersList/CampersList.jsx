@@ -1,23 +1,30 @@
 import styles from './CampersList.module.css';
 import { Link, useLocation } from 'react-router-dom';
-
 import { useSelector } from 'react-redux';
 import { selectCampers, selectFilteredCampers } from '../../redux/campersSlice';
+import { useState } from 'react';
 
 function CampersList() {
   const campers = useSelector(selectCampers);
   const fileredCampers = useSelector(selectFilteredCampers);
   const location = useLocation();
+  const itemsPerPage = 4;
 
-  // Handle empty state
+  const [visibleCount, setVisibleCount] = useState(itemsPerPage);
+
   if (campers.total === 0) {
     return <p className={styles.noCampersMessage}>No campers available.</p>;
   }
+
+  const handleLoadMore = () => {
+    setVisibleCount(prev => prev + itemsPerPage);
+  };
+
   return (
     <>
-      <div>
+      <div className={styles.contentWrapper}>
         <ul className={styles.campersListWrapper}>
-          {fileredCampers.map(camper => (
+          {fileredCampers.slice(0, visibleCount).map(camper => (
             <li className={styles.cardWrapper} key={camper.id}>
               <div className={styles.cardLeftSection}>
                 <img
@@ -59,6 +66,9 @@ function CampersList() {
             </li>
           ))}
         </ul>
+        <button className={styles.loadMoreBtn} onClick={handleLoadMore}>
+          Load More
+        </button>
       </div>
     </>
   );

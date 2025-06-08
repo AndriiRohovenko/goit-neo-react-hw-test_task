@@ -4,6 +4,7 @@
   align-items: center;
   height: auto;
   position: relative;
+  background-color: #f2f4f7;
 }
 
 @media (max-width: 600px) {

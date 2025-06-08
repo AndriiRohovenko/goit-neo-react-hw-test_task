@@ -1,8 +1,14 @@
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .campersListWrapper {
   display: flex;
   flex-direction: column;
   gap: 32px;
   max-width: 888px;
+  margin-bottom: 40px;
 }
 
 .cardWrapper {
@@ -81,4 +87,17 @@
 
 .showMoreBtn:hover {
   background-color: #d84343;
+}
+
+.loadMoreBtn {
+  padding: 10px 15px;
+  border: none;
+  background-color: white;
+  color: #101828;
+  border: 1px solid #dadde1;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 20px;
+  max-width: 145px;
+  margin: 0 auto;
 }
