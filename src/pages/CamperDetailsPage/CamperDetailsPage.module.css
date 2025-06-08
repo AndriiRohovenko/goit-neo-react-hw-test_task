@@ -57,7 +57,7 @@
 }
 
 .additionalDetailsTop {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #dadde1;
   margin-bottom: 44px;
   padding: 24px;
 }
@@ -80,6 +80,12 @@
 .additionalDetailsBottom {
   display: flex;
   gap: 40px;
+}
+
+@media (max-width: 1024px) {
+  .additionalDetailsBottom {
+    flex-direction: column;
+  }
 }
 
 .bookingForm {

@@ -5,6 +5,13 @@
   margin-top: 20px;
 }
 
-.reviewItemWrapper {
+.reviewItemsWrapper {
   max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.commentText {
+  color: #475467;
 }

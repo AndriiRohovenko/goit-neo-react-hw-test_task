@@ -24,8 +24,6 @@ const CamperDetailsPage = () => {
     }
   }, [dispatch, camper, camperId]);
 
-  console.log(camper);
-
   const navigate = useNavigate();
   const location = useLocation();
 
