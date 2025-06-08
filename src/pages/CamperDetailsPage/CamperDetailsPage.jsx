@@ -105,10 +105,12 @@ const CamperDetailsPage = () => {
             </ul>
           </div>
           <div className={styles.additionalDetailsBottom}>
-            <BookCamperForm />
+            <Outlet />
+            <div className={styles.bookingForm}>
+              <BookCamperForm />
+            </div>
           </div>
         </div>
-        <Outlet />
       </div>
     </>
   );

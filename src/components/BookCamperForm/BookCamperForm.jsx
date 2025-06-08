@@ -26,7 +26,7 @@ const BookingForm = () => {
 
   return (
     <div className={styles.formContainer}>
-      <h2 className={styles.formTitle}>Book your campervan now</h2>
+      <h2 className={styles.formTitle}>Book your camper now!</h2>
       <p className={styles.formSubtitle}>
         Stay connected! We are always ready to help you.
       </p>
