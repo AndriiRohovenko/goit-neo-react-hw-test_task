@@ -1,5 +1,5 @@
 .pageContent {
-  padding: 64px;
+  padding: 0px 64px;
 }
 
 .goBackBtn {
@@ -19,9 +19,64 @@
 .contentHead {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
 }
 
 .contentHead div {
   display: flex;
   gap: 16px;
+}
+
+.camperGallery {
+  display: flex;
+  gap: 48px;
+  max-width: 292px;
+  height: 320px;
+  margin-bottom: 28px;
+}
+
+@media (max-width: 1024px) {
+  .camperGallery {
+    flex-direction: column;
+    height: auto;
+  }
+}
+
+.camperGallery img {
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.camperDescription {
+  color: #475467;
+  margin-bottom: 60px;
+}
+
+.additionalDetailsTop {
+  border-bottom: 1px solid gray;
+  margin-bottom: 44px;
+  padding: 24px;
+}
+
+.additionalDetailsTopNav {
+  display: flex;
+  gap: 40px;
+}
+
+.navLink {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+}
+
+.active {
+  color: rgb(177, 57, 57);
+}
+
+.additionalDetailsBottom {
+  margin-bottom: 40px;
 }

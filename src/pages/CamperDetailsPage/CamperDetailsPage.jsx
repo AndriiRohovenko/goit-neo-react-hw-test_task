@@ -10,6 +10,8 @@ import { selectError, selectLoading } from '../../redux/campersSlice';
 import { fetchCamperByIdThunk } from '../../redux/campersOps';
 import { selectSingleCamper } from '../../redux/campersSlice';
 
+import BookCamperForm from '../../components/BookCamperForm/BookCamperForm';
+
 const CamperDetailsPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectLoading);
@@ -57,32 +59,54 @@ const CamperDetailsPage = () => {
             <p>{`${camper.rating}(${camper.reviews.length} Reviews)`}</p>
             <p>{camper.location}</p>
           </div>
-          <p>€{camper.price}</p>
+          <b>
+            <p>€{camper.price}</p>
+          </b>
         </div>
         <div className={styles.camperGallery}>
           {camper.gallery.map(img => (
             <img
               key={img.thumb}
               src={img.thumb}
-              alt={`original image of ${camper.name}`}
+              alt={`thumb image of ${camper.name}`}
             />
           ))}
         </div>
-        <p>{camper.description}</p>
-        <div>
-          <p>Additional Information</p>
-          <ul>
-            <li>
-              <NavLink to="features" state={location.state}>
-                Features
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="reviews" state={location.state}>
-                Reviews
-              </NavLink>
-            </li>
-          </ul>
+        <p className={styles.camperDescription}>{camper.description}</p>
+        <div className={styles.camperAdditionalDetails}>
+          <div className={styles.additionalDetailsTop}>
+            <ul className={styles.additionalDetailsTopNav}>
+              <li>
+                <NavLink
+                  to="features"
+                  state={location.state}
+                  className={({ isActive }) =>
+                    isActive
+                      ? `${styles.navLink} ${styles.active}`
+                      : styles.navLink
+                  }
+                >
+                  Features
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="reviews"
+                  state={location.state}
+                  className={({ isActive }) =>
+                    isActive
+                      ? `${styles.navLink} ${styles.active}`
+                      : styles.navLink
+                  }
+                >
+                  Reviews
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+          <div className={styles.additionalDetailsBottom}>
+            <BookCamperForm />
+          </div>
         </div>
         <Outlet />
       </div>
