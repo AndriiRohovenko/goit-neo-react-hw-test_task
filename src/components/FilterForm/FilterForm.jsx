@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import {
   toggleEquipment,
   setVehicleType,
+  setVehicleLocation,
   resetFilters,
   selectFilters,
 } from '../../redux/filtersSlice';
@@ -21,16 +22,20 @@ const filterOptions = {
     { label: 'Fully Integrated', key: 'fullyIntegrated' },
     { label: 'Alcove', key: 'alcove' },
   ],
+  vehicleLocation: [
+    { label: 'Ukraine, Kyiv', key: 'Ukraine, Kyiv' },
+    { label: 'Ukraine, Odessa', key: 'Ukraine, Odessa' },
+  ],
 };
 
 function FilterForm() {
   const dispatch = useDispatch();
-  const { selectedEquipment, selectedVehicleType } = useSelector(selectFilters);
-  console.log(selectedEquipment);
-  console.log(selectedVehicleType);
+  const { selectedEquipment, selectedVehicleType, selectedLocation } =
+    useSelector(selectFilters);
 
   const [equipment, setEquipment] = useState(selectedEquipment);
   const [vehicleType, setVehicleTypeLocal] = useState(selectedVehicleType);
+  const [vehicleLocation, setVehicleLocationLocal] = useState(selectedLocation);
 
   const handleEquipmentToggle = key => {
     setEquipment(prev =>
@@ -42,21 +47,43 @@ function FilterForm() {
     setVehicleTypeLocal(key);
   };
 
+  const handleVehicleLocationSelect = key => {
+    setVehicleLocationLocal(key);
+  };
+
   const handleSubmit = e => {
     e.preventDefault();
 
     equipment.forEach(eq => dispatch(toggleEquipment(eq)));
     dispatch(setVehicleType(vehicleType));
+    dispatch(setVehicleLocation(vehicleLocation));
   };
 
   const handleReset = () => {
     setEquipment([]);
     setVehicleTypeLocal('');
+    setVehicleLocation('');
     dispatch(resetFilters());
   };
 
   return (
     <form className={styles.filterForm} onSubmit={handleSubmit}>
+      <h3>Vehicle Location</h3>
+      <div className={styles.filterGroup}>
+        <select
+          value={vehicleLocation}
+          onChange={e => handleVehicleLocationSelect(e.target.value)}
+          className={styles.dropdown}
+        >
+          <option value="">Select location</option>
+          {filterOptions.vehicleLocation.map(option => (
+            <option key={option.key} value={option.key}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      </div>
+
       <h3>Vehicle Equipment</h3>
       <div className={styles.filterGroup}>
         {filterOptions.vehicleEquipment.map(option => (

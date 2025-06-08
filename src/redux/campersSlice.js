@@ -52,7 +52,8 @@ export const selectError = state => state.campers.error;
 export const selectFilteredCampers = createSelector(
   [selectCampers, selectFilters],
   (campers, filters) => {
-    const { selectedEquipment, selectedVehicleType } = filters;
+    const { selectedEquipment, selectedVehicleType, selectedLocation } =
+      filters;
 
     const fieldMap = {
       automatic: camper => camper.transmission === 'automatic',
@@ -70,7 +71,10 @@ export const selectFilteredCampers = createSelector(
       const matchesType =
         !selectedVehicleType || camper.form === selectedVehicleType;
 
-      return matchesEquipment && matchesType;
+      const matchesLocation =
+        !selectedLocation || camper.location === selectedLocation;
+
+      return matchesEquipment && matchesType && matchesLocation;
     });
   }
 );

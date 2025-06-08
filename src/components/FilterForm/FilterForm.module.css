@@ -49,3 +49,11 @@
 .resetBtn:hover {
   background-color: #c0392b;
 }
+
+.dropdown {
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
