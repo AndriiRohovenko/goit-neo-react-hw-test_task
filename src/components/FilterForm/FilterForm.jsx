@@ -24,7 +24,7 @@ const filterOptions = {
   ],
   vehicleLocation: [
     { label: 'Ukraine, Kyiv', key: 'Ukraine, Kyiv' },
-    { label: 'Ukraine, Odessa', key: 'Ukraine, Odessa' },
+    { label: 'Ukraine, Odesa', key: 'Ukraine, Odesa' },
   ],
 };
 
