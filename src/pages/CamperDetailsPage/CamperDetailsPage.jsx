@@ -45,7 +45,12 @@ const CamperDetailsPage = () => {
       <div className={styles.pageContent}>
         <div className={styles.contentHead}>
           <h1>{camper.name}</h1>
-          <div>
+          <div className={styles.reviewsWrapper}>
+            <img
+              className={styles.ratingIcon}
+              src="/icons/ratingIcon.svg"
+              alt="rating icon"
+            />
             <p>{`${camper.rating}(${camper.reviews.length} Reviews)`}</p>
             <div className={styles.locationWrapper}>
               <img src="/icons/locationIcon.svg" alt="location icon" />
