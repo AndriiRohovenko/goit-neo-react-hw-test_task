@@ -2,24 +2,11 @@
   padding: 0px 64px;
 }
 
-.goBackBtn {
-  padding: 10px 15px;
-  border: none;
-  background-color: #e44848;
-  color: white;
-  border-radius: 50px;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-.goBackBtn:hover {
-  background-color: #d84343;
-}
-
 .contentHead {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-top: 20px;
   margin-bottom: 28px;
 }
 

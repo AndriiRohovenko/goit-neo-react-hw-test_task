@@ -1,2 +1,16 @@
 .appContent {
 }
+
+.mainBtn {
+  padding: 15px 35px;
+  border: none;
+  background-color: #e44848;
+  color: white;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.mainBtn:hover {
+  background-color: #d84343;
+}

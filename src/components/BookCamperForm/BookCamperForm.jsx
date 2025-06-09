@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import styles from './BookCamperForm.module.css';
+import sharedStyles from '../../components/App/App.module.css';
 import { useState } from 'react';
 
 const BookingForm = () => {
@@ -50,7 +51,7 @@ const BookingForm = () => {
             {() => (
               <Form className={styles.bookingForm}>
                 <div className={styles.fieldWrapper}>
-                  <label htmlFor="name">Name</label>
+                  <label htmlFor="name"></label>
                   <Field
                     type="text"
                     id="name"
@@ -65,7 +66,7 @@ const BookingForm = () => {
                   />
                 </div>
                 <div className={styles.fieldWrapper}>
-                  <label htmlFor="email">Email</label>
+                  <label htmlFor="email"></label>
                   <Field
                     type="email"
                     id="email"
@@ -80,7 +81,7 @@ const BookingForm = () => {
                   />
                 </div>
                 <div className={styles.fieldWrapper}>
-                  <label htmlFor="bookingDate">Booking Date</label>
+                  <label htmlFor="bookingDate"></label>
                   <Field
                     type="date"
                     id="bookingDate"
@@ -94,7 +95,7 @@ const BookingForm = () => {
                   />
                 </div>
                 <div className={styles.fieldWrapper}>
-                  <label htmlFor="comment">Comment</label>
+                  <label htmlFor="comment"></label>
                   <Field
                     as="textarea"
                     id="comment"
@@ -103,9 +104,11 @@ const BookingForm = () => {
                     className={styles.formTextarea}
                   />
                 </div>
-                <button type="submit" className={styles.formButton}>
-                  Send
-                </button>
+                <div className={styles.submitBtnWrapper}>
+                  <button type="submit" className={sharedStyles.mainBtn}>
+                    Send
+                  </button>
+                </div>
               </Form>
             )}
           </Formik>

@@ -83,20 +83,6 @@
   padding: 12px;
 }
 
-.showMoreBtn {
-  padding: 10px 15px;
-  border: none;
-  background-color: #e44848;
-  color: white;
-  border-radius: 50px;
-  cursor: pointer;
-  margin-top: 20px;
-}
-
-.showMoreBtn:hover {
-  background-color: #d84343;
-}
-
 .loadMoreBtn {
   padding: 16px 32px;
   border: none;

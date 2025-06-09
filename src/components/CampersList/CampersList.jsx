@@ -1,4 +1,5 @@
 import styles from './CampersList.module.css';
+import sharedStyles from '../../components/App/App.module.css';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectFilteredCampers } from '../../redux/campersSlice';
@@ -96,7 +97,7 @@ function CampersList() {
                     {camper.water ? <p>Water</p> : null}
                   </div>
                   <Link to={`/catalog/${camper.id}`} state={location}>
-                    <button className={styles.showMoreBtn}>Show More</button>
+                    <button className={sharedStyles.mainBtn}>Show More</button>
                   </Link>
                 </div>
               </li>

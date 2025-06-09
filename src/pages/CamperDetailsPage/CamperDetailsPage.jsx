@@ -1,4 +1,5 @@
 import styles from './CamperDetailsPage.module.css';
+import sharedStyles from '../../components/App/App.module.css';
 import { useEffect } from 'react';
 import { useParams, useNavigate, useLocation, Outlet } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
@@ -48,7 +49,7 @@ const CamperDetailsPage = () => {
   return (
     <>
       <div className={styles.pageContent}>
-        <button className={styles.goBackBtn} onClick={backButtonHandler}>
+        <button className={sharedStyles.mainBtn} onClick={backButtonHandler}>
           Go Back
         </button>
         <div className={styles.contentHead}>

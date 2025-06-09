@@ -1,4 +1,5 @@
 import styles from './FilterForm.module.css';
+import sharedStyles from '../../components/App/App.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   toggleEquipment,
@@ -122,10 +123,14 @@ function FilterForm() {
       </div>
 
       <div className={styles.actions}>
-        <button type="submit" className={styles.searchBtn}>
+        <button type="submit" className={sharedStyles.mainBtn}>
           Search
         </button>
-        <button type="button" onClick={handleReset} className={styles.resetBtn}>
+        <button
+          type="button"
+          onClick={handleReset}
+          className={sharedStyles.mainBtn}
+        >
           Reset
         </button>
       </div>
