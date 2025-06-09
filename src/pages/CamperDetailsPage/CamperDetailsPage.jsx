@@ -56,7 +56,13 @@ const CamperDetailsPage = () => {
           <h1>{camper.name}</h1>
           <div>
             <p>{`${camper.rating}(${camper.reviews.length} Reviews)`}</p>
-            <p>{camper.location}</p>
+            <div className={styles.locationWrapper}>
+              <img
+                src="/src/assets/icons/locationIcon.svg"
+                alt="location icon"
+              />
+              <p>{camper.location}</p>
+            </div>
           </div>
           <b>
             <p>€{camper.price.toFixed(2)}</p>

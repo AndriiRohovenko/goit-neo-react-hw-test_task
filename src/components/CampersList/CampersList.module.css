@@ -52,6 +52,11 @@
   gap: 16px;
 }
 
+.locationWrapper {
+  display: flex;
+  gap: 4px;
+}
+
 .cardRightTop {
   display: flex;
   justify-content: space-between;
