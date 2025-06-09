@@ -6,7 +6,7 @@
 }
 
 .reviewItemsWrapper {
-  max-width: 400px;
+  max-width: 630px;
   display: flex;
   flex-direction: column;
   gap: 20px;
