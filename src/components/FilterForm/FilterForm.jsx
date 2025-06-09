@@ -76,12 +76,20 @@ function FilterForm() {
     <form className={styles.filterForm} onSubmit={handleSubmit}>
       <h3>Vehicle Location</h3>
       <div className={styles.filterGroup}>
+        <img
+          className={styles.locationIcon}
+          src="/icons/locationIcon.svg"
+          alt="location icon"
+        />
         <select
           value={vehicleLocation}
           onChange={e => handleVehicleLocationSelect(e.target.value)}
           className={styles.dropdown}
+          name="locationSelector"
         >
+          <img src="/icons/locationIcon.svg" alt="location icon" />
           <option value="">Select location</option>
+
           {filterOptions.vehicleLocation.map(option => (
             <option key={option.key} value={option.key}>
               {option.label}

@@ -8,6 +8,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  position: relative;
 }
 
 .filterBtn {
@@ -25,11 +26,19 @@
 }
 
 .dropdown {
-  padding: 8px;
+  padding: 8px 30px;
   border-radius: 8px;
   font-size: 16px;
   border: 1px solid #ccc;
   width: 100%;
+}
+
+.locationIcon {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .actions {
