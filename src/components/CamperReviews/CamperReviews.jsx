@@ -27,9 +27,19 @@ function CamperReviews() {
           ) : (
             camper.reviews.map(review => (
               <li className={styles.reviewItemWrapper} key={review.comment}>
-                <b>
-                  <p>{review.reviewer_name}</p>
-                </b>
+                <div className={styles.revieverItemTop}>
+                  <div className={styles.reviewerLogo}>
+                    <p className={styles.reviewerLogoIcon}>
+                      {review.reviewer_name[0]}
+                    </p>
+                  </div>
+                  <div className={styles.reviewerDetails}>
+                    <b>
+                      <p>{review.reviewer_name}</p>
+                    </b>
+                    <StarRating rating={review.reviewer_rating} />
+                  </div>
+                </div>
                 <p className={styles.commentText}>{review.comment}</p>
               </li>
             ))
@@ -41,3 +51,15 @@ function CamperReviews() {
 }
 
 export default CamperReviews;
+
+const StarRating = ({ rating }) => {
+  return (
+    <div>
+      {[...Array(5)].map((_, i) => (
+        <span key={i} style={{ color: i < rating ? '#FFC107' : '#E0E0E0' }}>
+          ★
+        </span>
+      ))}
+    </div>
+  );
+};
