@@ -67,7 +67,7 @@ function CampersList() {
                         onClick={() => toggleFavorite(camper)}
                       >
                         <img
-                          src="/src/assets/icons/favoriteIcon.svg"
+                          src="../src/assets/icons/favoriteIcon.svg"
                           alt="Favorite"
                           className={styles.favoriteIcon}
                         />
@@ -78,7 +78,7 @@ function CampersList() {
                     <p>{`${camper.rating}(${camper.reviews.length} Reviews)`}</p>
                     <div className={styles.locationWrapper}>
                       <img
-                        src="./src/assets/icons/locationIcon.svg"
+                        src="../src/assets/icons/locationIcon.svg"
                         alt="location icon"
                       />
                       <p>{camper.location}</p>
