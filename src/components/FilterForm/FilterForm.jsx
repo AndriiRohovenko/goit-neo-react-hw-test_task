@@ -84,29 +84,31 @@ function FilterForm() {
 
   return (
     <form className={styles.filterForm} onSubmit={handleSubmit}>
-      <div className={styles.filterGroup}>
-        <img
-          className={styles.locationIcon}
-          src="/icons/locationIcon.svg"
-          alt="location icon"
-        />
-        <select
-          value={vehicleLocation}
-          onChange={e => handleVehicleLocationSelect(e.target.value)}
-          className={styles.dropdown}
-          name="locationSelector"
-        >
-          <img src="/icons/locationIcon.svg" alt="location icon" />
-          <option value="">Select location</option>
-
-          {filterOptions.vehicleLocation.map(option => (
-            <option key={option.key} value={option.key}>
-              {option.label}
-            </option>
-          ))}
-        </select>
+      <h2 className={styles.filtersSectionTitle}>Location</h2>
+      <div className={styles.locationFilterWrapper}>
+        <div className={styles.filterGroup}>
+          <img
+            className={styles.locationIcon}
+            src="/icons/locationIcon.svg"
+            alt="location icon"
+          />
+          <select
+            value={vehicleLocation}
+            onChange={e => handleVehicleLocationSelect(e.target.value)}
+            className={styles.dropdown}
+            name="locationSelector"
+          >
+            <img src="/icons/locationIcon.svg" alt="location icon" />
+            <option value="">Select location</option>
+            {filterOptions.vehicleLocation.map(option => (
+              <option key={option.key} value={option.key}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
-
+      <h2 className={styles.filtersSectionTitle}>Filters</h2>
       <h3 className={styles.filtersTitle}>Vehicle Equipment</h3>
       <div className={styles.filterGroup}>
         {filterOptions.vehicleEquipment.map(option => (

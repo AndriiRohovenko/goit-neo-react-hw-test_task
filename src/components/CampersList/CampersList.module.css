@@ -52,6 +52,11 @@
   gap: 16px;
 }
 
+.reviewsWrapper {
+  display: flex;
+  gap: 4px;
+}
+
 .locationWrapper {
   display: flex;
   gap: 4px;

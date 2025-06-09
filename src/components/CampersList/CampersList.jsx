@@ -75,7 +75,14 @@ function CampersList() {
                     </div>
                   </div>
                   <div className={styles.cardContentHead}>
-                    <p>{`${camper.rating}(${camper.reviews.length} Reviews)`}</p>
+                    <div className={styles.reviewsWrapper}>
+                      <img
+                        className={styles.ratingIcon}
+                        src="/icons/ratingIcon.svg"
+                        alt="rating icon"
+                      />
+                      <p>{`${camper.rating}(${camper.reviews.length} Reviews)`}</p>
+                    </div>
                     <div className={styles.locationWrapper}>
                       <img src="/icons/locationIcon.svg" alt="location icon" />
                       <p>{camper.location}</p>
