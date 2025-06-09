@@ -1,7 +1,6 @@
 import styles from './CamperDetailsPage.module.css';
-import sharedStyles from '../../components/App/App.module.css';
 import { useEffect } from 'react';
-import { useParams, useNavigate, useLocation, Outlet } from 'react-router-dom';
+import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import Loader from '../../components/Loader/Loader';
 import ErrorMessage from '../../components/ErrorMessage/ErrorMessage';
@@ -25,12 +24,7 @@ const CamperDetailsPage = () => {
     }
   }, [dispatch, camper, camperId]);
 
-  const navigate = useNavigate();
   const location = useLocation();
-
-  const backButtonHandler = () => {
-    navigate(location.state ?? '/catalog');
-  };
 
   if (isLoading) {
     return <Loader />;
@@ -49,9 +43,6 @@ const CamperDetailsPage = () => {
   return (
     <>
       <div className={styles.pageContent}>
-        <button className={sharedStyles.mainBtn} onClick={backButtonHandler}>
-          Go Back
-        </button>
         <div className={styles.contentHead}>
           <h1>{camper.name}</h1>
           <div>

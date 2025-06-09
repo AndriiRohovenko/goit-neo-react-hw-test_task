@@ -1,12 +1,130 @@
-# React + Vite
+Camper Cars Booking App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a modern web application built with Vite, designed to help users explore
+and book camper cars conveniently. The app provides a fast and interactive user
+experience, thanks to Vite's lightweight build tools and efficient development
+environment.
 
-Currently, two official plugins are available:
+Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Before starting, ensure you have the following installed on your system:
 
-## Expanding the ESLint configuration
+Node.js (v16 or later)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+npm (Node Package Manager) or yarn
+
+You can check your versions by running:
+
+node -v npm -v
+
+Getting Started
+
+1. Clone the Repository
+
+git clone <repository-url> cd <project-folder>
+
+2. Install Dependencies
+
+Use npm or yarn to install the required dependencies:
+
+npm install
+
+# or
+
+yarn install
+
+Running the Project
+
+Development Server
+
+To start the development server:
+
+npm run dev
+
+# or
+
+yarn dev
+
+This will start the Vite dev server. By default, it should be accessible at:
+
+http://localhost:5173
+
+Building for Production
+
+To create an optimized production build:
+
+npm run build
+
+# or
+
+yarn build
+
+The output will be generated in the dist directory.
+
+Preview Production Build
+
+To preview the production build locally:
+
+npm run preview
+
+# or
+
+yarn preview
+
+Scripts Overview
+
+Script
+
+Description
+
+npm run dev
+
+Start the development server
+
+npm run build
+
+Build the project for production
+
+npm run preview
+
+Preview the production build locally
+
+Project Structure
+
+project-folder/ ├── public/ # Static assets ├── src/ # Main source code │ ├──
+components/ # Reusable UI components │ ├── pages/ # Application pages (e.g.,
+Home, Booking, About) │ ├── styles/ # CSS or SCSS files │ ├── App.jsx # Main app
+component │ ├── main.jsx # Entry point ├── package.json # Project metadata and
+dependencies ├── vite.config.js # Vite configuration file ├── README.md #
+Documentation (you are here!)
+
+Features
+
+Explore Campers: Browse a variety of camper cars with detailed descriptions.
+
+Search & Filter: Quickly find the camper that fits your needs.
+
+Booking System: Effortlessly book a camper with a user-friendly interface.
+
+Responsive Design: Optimized for both desktop and mobile devices.
+
+Contributing
+
+Contributions are welcome! If you'd like to contribute, please:
+
+Fork the repository.
+
+Create a new branch for your feature or bug fix.
+
+Commit your changes and push the branch.
+
+Open a pull request.
+
+License
+
+This project is licensed under the MIT License.
+
+Contact
+
+For any questions or feedback, please contact us at:
+support@camperbookingapp.com.

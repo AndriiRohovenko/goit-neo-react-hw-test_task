@@ -1,6 +1,6 @@
 import styles from './CampersList.module.css';
 import sharedStyles from '../../components/App/App.module.css';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectFilteredCampers } from '../../redux/campersSlice';
 import { useState } from 'react';
@@ -14,7 +14,7 @@ function CampersList() {
   const dispatch = useDispatch();
   const filteredCampers = useSelector(selectFilteredCampers);
   const favoritesItems = useSelector(selectFavorites);
-  const location = useLocation();
+
   const itemsPerPage = 4;
 
   const [visibleCount, setVisibleCount] = useState(itemsPerPage);
@@ -102,9 +102,14 @@ function CampersList() {
                     {camper.gas ? <p>Gas</p> : null}
                     {camper.water ? <p>Water</p> : null}
                   </div>
-                  <Link to={`/catalog/${camper.id}`} state={location}>
+
+                  <a
+                    href={`/catalog/${camper.id}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <button className={sharedStyles.mainBtn}>Show More</button>
-                  </Link>
+                  </a>
                 </div>
               </li>
             );
