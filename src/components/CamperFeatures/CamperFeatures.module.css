@@ -1,7 +1,7 @@
 .camperFeaturesWrapper {
   background-color: #f7f7f7;
   max-width: 630px;
-
+  max-height: 588px;
   padding: 44px 52px;
   margin-bottom: 40px;
   border-radius: 20px;
@@ -32,9 +32,9 @@
   font-size: 20px;
   border-bottom: 1px solid #dadde1;
   padding-bottom: 24px;
-  margin-bottom: 48px;
+  margin-bottom: 24px;
 }
 
 .camperDetails p {
-  text-align: justify;
+  padding: 8px;
 }

@@ -51,14 +51,16 @@ const CamperDetailsPage = () => {
               src="/icons/ratingIcon.svg"
               alt="rating icon"
             />
-            <p>{`${camper.rating}(${camper.reviews.length} Reviews)`}</p>
+            <u>
+              <p>{`${camper.rating}(${camper.reviews.length} Reviews)`}</p>
+            </u>
             <div className={styles.locationWrapper}>
               <img src="/icons/locationIcon.svg" alt="location icon" />
               <p>{camper.location}</p>
             </div>
           </div>
           <b>
-            <p>€{camper.price.toFixed(2)}</p>
+            <p className={styles.camperPrice}>€{camper.price.toFixed(2)}</p>
           </b>
         </div>
         <div className={styles.camperGallery}>
@@ -74,7 +76,7 @@ const CamperDetailsPage = () => {
         <div className={styles.camperAdditionalDetails}>
           <div className={styles.additionalDetailsTop}>
             <ul className={styles.additionalDetailsTopNav}>
-              <li>
+              <li className={styles.navLinkWrapper}>
                 <NavLink
                   to="features"
                   state={location.state}
@@ -87,7 +89,7 @@ const CamperDetailsPage = () => {
                   Features
                 </NavLink>
               </li>
-              <li>
+              <li className={styles.navLinkWrapper}>
                 <NavLink
                   to="reviews"
                   state={location.state}

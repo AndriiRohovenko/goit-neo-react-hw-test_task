@@ -81,7 +81,9 @@ function CampersList() {
                         src="/icons/ratingIcon.svg"
                         alt="rating icon"
                       />
-                      <p>{`${camper.rating}(${camper.reviews.length} Reviews)`}</p>
+                      <u>
+                        <p>{`${camper.rating}(${camper.reviews.length} Reviews)`}</p>
+                      </u>
                     </div>
                     <div className={styles.locationWrapper}>
                       <img src="/icons/locationIcon.svg" alt="location icon" />
