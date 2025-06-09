@@ -28,8 +28,11 @@ function CampersList() {
 
   const isLastPage = visibleCount >= filteredCampers.length;
 
+  const isFavoriteCallback = camper =>
+    favoritesItems.some(item => item.id === camper.id);
+
   const toggleFavorite = camper => {
-    const isFavorite = favoritesItems.some(item => item.id === camper.id);
+    const isFavorite = isFavoriteCallback(camper);
     if (isFavorite) {
       dispatch(removeFavoriteByID(camper.id));
     } else {
@@ -41,9 +44,7 @@ function CampersList() {
       <div className={styles.contentWrapper}>
         <ul className={styles.campersListWrapper}>
           {filteredCampers.slice(0, visibleCount).map(camper => {
-            const isFavorite = favoritesItems.some(
-              item => item.id === camper.id
-            );
+            const isFavorite = isFavoriteCallback(camper);
             return (
               <li className={styles.cardWrapper} key={camper.id}>
                 <div className={styles.cardLeftSection}>
