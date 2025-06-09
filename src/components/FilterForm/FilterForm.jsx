@@ -98,7 +98,6 @@ function FilterForm() {
             className={styles.dropdown}
             name="locationSelector"
           >
-            <img src="/icons/locationIcon.svg" alt="location icon" />
             <option value="">Select location</option>
             {filterOptions.vehicleLocation.map(option => (
               <option key={option.key} value={option.key}>
