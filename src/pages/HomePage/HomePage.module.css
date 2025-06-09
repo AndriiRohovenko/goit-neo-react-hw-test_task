@@ -1,5 +1,5 @@
 .background {
-  background-image: url('../../../public/images/Picture-min.jpg');
+  background-image: url('/images/Picture-min.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;

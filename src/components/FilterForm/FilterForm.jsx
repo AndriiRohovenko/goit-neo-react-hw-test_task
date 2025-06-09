@@ -74,7 +74,6 @@ function FilterForm() {
 
   return (
     <form className={styles.filterForm} onSubmit={handleSubmit}>
-      <h3>Vehicle Location</h3>
       <div className={styles.filterGroup}>
         <img
           className={styles.locationIcon}
@@ -98,7 +97,7 @@ function FilterForm() {
         </select>
       </div>
 
-      <h3>Vehicle Equipment</h3>
+      <h3 className={styles.filtersTitle}>Vehicle Equipment</h3>
       <div className={styles.filterGroup}>
         {filterOptions.vehicleEquipment.map(option => (
           <button
@@ -114,7 +113,7 @@ function FilterForm() {
         ))}
       </div>
 
-      <h3>Vehicle Type</h3>
+      <h3 className={styles.filtersTitle}>Vehicle Type</h3>
       <div className={styles.filterGroup}>
         {filterOptions.vehicleType.map(option => (
           <button

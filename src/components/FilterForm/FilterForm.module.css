@@ -11,6 +11,11 @@
   position: relative;
 }
 
+.filtersTitle {
+  border-bottom: 1px solid #dadde1;
+  padding-bottom: 24px;
+}
+
 .filterBtn {
   padding: 10px 14px;
   border: 1px solid #ccc;
