@@ -10,6 +10,16 @@ import {
 } from '../../redux/filtersSlice';
 import { useState } from 'react';
 
+import alcoveTypeIcon from '/public/icons/alcoveType.svg';
+import fullTypeIcon from '/public/icons/fullTypeIcon.svg';
+import vanTypeIcon from '/public/icons/vanTypeIcon.svg';
+
+const vehicleIconsMap = {
+  alcove: alcoveTypeIcon,
+  fullyIntegrated: fullTypeIcon,
+  van: vanTypeIcon,
+};
+
 const filterOptions = {
   vehicleEquipment: [
     { label: 'AC', key: 'AC' },
@@ -124,6 +134,12 @@ function FilterForm() {
               vehicleType === option.key ? styles.active : ''
             }`}
           >
+            <img
+              src={vehicleIconsMap[option.key]}
+              alt={`${option.label} icon`}
+              className={styles.vehicleTypeIcon}
+            />
+
             {option.label}
           </button>
         ))}
