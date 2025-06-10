@@ -1,6 +1,8 @@
 .contentWrapper {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .campersListWrapper {
@@ -125,4 +127,7 @@
 .favoriteBtn.activeFavorite .favoriteIcon {
   filter: brightness(0) saturate(100%) invert(35%) sepia(84%) saturate(747%)
     hue-rotate(342deg) brightness(95%) contrast(105%);
+}
+
+.epmtySearchResult {
 }
