@@ -43,7 +43,6 @@ function CampersList() {
   return (
     <>
       <div className={styles.contentWrapper}>
-        {console.log(filteredCampers)}
         {filteredCampers && filteredCampers.length > 0 ? (
           <ul className={styles.campersListWrapper}>
             {filteredCampers.slice(0, visibleCount).map(camper => {
