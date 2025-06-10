@@ -10,9 +10,9 @@ import {
 } from '../../redux/filtersSlice';
 import { useState } from 'react';
 
-import alcoveTypeIcon from '/public/icons/alcoveType.svg';
-import fullTypeIcon from '/public/icons/fullTypeIcon.svg';
-import vanTypeIcon from '/public/icons/vanTypeIcon.svg';
+import alcoveTypeIcon from '/icons/alcoveType.svg';
+import fullTypeIcon from '/icons/fullTypeIcon.svg';
+import vanTypeIcon from '/icons/vanTypeIcon.svg';
 
 const vehicleIconsMap = {
   alcove: alcoveTypeIcon,
